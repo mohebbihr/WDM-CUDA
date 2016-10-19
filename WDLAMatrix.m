@@ -1,12 +1,15 @@
-function [ Udla eign L] = WDLAMatrix( fea,gnd,options )
-% Weighted Bipart
+% The CPU implementation of WDLAMatrix
+% author: Hamidreza Mohebbi
+% Email: mohebbi.h@gmail.com
+% May, 2016
 
+function [ Udla eign L] = WDLAMatrix( fea,gnd,options )
 % example
 % fea = rand(500,100);
 % gnd = [ones(250,1);-ones(250,1)];
 % options.k1 = 2;
 % options.k2 = 3;
-% [ Udla] = DLAMatrix( fea,gnd,options );
+% [ Udla] = WDLAMatrix( fea,gnd,options );
 % d = 50;
 % proj = fea*Udla(:,1:d);
 
@@ -38,50 +41,6 @@ Distant = Dist(fea,fea);
 BlockSize = 16;
 % caculate L matrix
 L = zeros(sampleNumber,sampleNumber);
-%{
-idxsame = zeros(1, sampleNumber);
-idxdiff = zeros(1, sampleNumber);
-samemat = zeros(1, sampleNumber);
-diffmat = zeros(1, sampleNumber);
-weight = zeros(1, k1 + k2 + 2);
-per_idx = zeros(1, k1 + k2 + 1);
-omega = zeros(1, k1 + k2 );
-WLi = zeros(k1 + k2 + 1);
-sidx = zeros(1, sampleNumber);
-didx = zeros(1, sampleNumber);
-sameid = zeros(1, sampleNumber);
-diffid = zeros(1, sampleNumber);
-
-Lcal = parallel.gpu.CUDAKernel('CUDA/gpuWDLA.ptx','CUDA/gpuWDLA.cu','gpuWDLA2');    
-Lcal.ThreadBlockSize = [BlockSize BlockSize];
-Lcal.GridSize = [ceil(sampleNumber/BlockSize) ceil(sampleNumber/BlockSize)];
-
-gndG = gpuArray(gnd);
-DistG = gpuArray(Distant);
-idxsameG = gpuArray(idxsame);
-idxdiffG = gpuArray(idxdiff);
-samematG = gpuArray(samemat);
-diffmatG = gpuArray(diffmat);
-weightG = gpuArray(weight);
-per_idxG = gpuArray(per_idx);
-WLiG = gpuArray(WLi);
-sidxG = gpuArray(sidx);
-didxG = gpuArray(didx);
-sameidG = gpuArray(sameid);
-diffidG = gpuArray(diffid);
-omegaG = gpuArray(omega);
-LG = gpuArray(L);    
-
-[LG] = feval(Lcal,DistG,gndG, idxsameG, idxdiffG, samematG, diffmatG, weightG, per_idxG, WLiG, sidxG, didxG, sameidG, diffidG,  LG, omegaG, beta,sampleNumber, k1, k2);
-%[LG] = feval(Lcal,LG,k1, k2);
-L = gather(LG);
-
-disp('L after GPU');
-L(1:5)
-
-disp('size of L');
-size(L)
-%}
 
 for LoopI = 1:sampleNumber 
     try    
@@ -122,17 +81,6 @@ for LoopI = 1:sampleNumber
     end
       
 end
-
-%disp('idxsame from CPU');
-%idxsame
-%disp('idxdiff from CPU');
-%idxdiff
-
-disp('L after CPU');
-L(1:5)
-
-%disp('size of L');
-%size(L)
 
 %mat = X * L * X';
 mat = X * L;
