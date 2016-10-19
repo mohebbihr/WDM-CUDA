@@ -1,0 +1,977 @@
+	.version 1.4
+	.target sm_10, map_f64_to_f32
+	// compiled with /usr/local/cuda-5.0/open64/lib//be
+	// nvopencc 4.1 built on 2012-09-21
+
+	//-----------------------------------------------------------
+	// Compiling /tmp/tmpxft_00003a99_00000000-9_gpuWDLA.cpp3.i (/tmp/ccBI#.lXtvzV)
+	//-----------------------------------------------------------
+
+	//-----------------------------------------------------------
+	// Options:
+	//-----------------------------------------------------------
+	//  Target:ptx, ISA:sm_10, Endian:little, Pointer Size:64
+	//  -O3	(Optimization level)
+	//  -g0	(Debug level)
+	//  -m2	(Report advisories)
+	//-----------------------------------------------------------
+
+	.file	1	"<command-line>"
+	.file	2	"/tmp/tmpxft_00003a99_00000000-8_gpuWDLA.cudafe2.gpu"
+	.file	3	"/usr/lib/gcc/x86_64-redhat-linux/4.4.7/include/stddef.h"
+	.file	4	"/usr/local/cuda-5.0/include/crt/device_runtime.h"
+	.file	5	"/usr/local/cuda-5.0/include/host_defines.h"
+	.file	6	"/usr/local/cuda-5.0/include/builtin_types.h"
+	.file	7	"/usr/local/cuda-5.0/include/device_types.h"
+	.file	8	"/usr/local/cuda-5.0/include/driver_types.h"
+	.file	9	"/usr/local/cuda-5.0/include/surface_types.h"
+	.file	10	"/usr/local/cuda-5.0/include/texture_types.h"
+	.file	11	"/usr/local/cuda-5.0/include/vector_types.h"
+	.file	12	"/usr/local/cuda-5.0/include/device_launch_parameters.h"
+	.file	13	"/usr/local/cuda-5.0/include/crt/storage_class.h"
+	.file	14	"gpuWDLA.cu"
+	.file	15	"/usr/local/cuda-5.0/include/common_functions.h"
+	.file	16	"/usr/local/cuda-5.0/include/math_functions.h"
+	.file	17	"/usr/local/cuda-5.0/include/math_constants.h"
+	.file	18	"/usr/local/cuda-5.0/include/device_functions.h"
+	.file	19	"/usr/local/cuda-5.0/include/sm_11_atomic_functions.h"
+	.file	20	"/usr/local/cuda-5.0/include/sm_12_atomic_functions.h"
+	.file	21	"/usr/local/cuda-5.0/include/sm_13_double_functions.h"
+	.file	22	"/usr/local/cuda-5.0/include/sm_20_atomic_functions.h"
+	.file	23	"/usr/local/cuda-5.0/include/sm_35_atomic_functions.h"
+	.file	24	"/usr/local/cuda-5.0/include/sm_20_intrinsics.h"
+	.file	25	"/usr/local/cuda-5.0/include/sm_30_intrinsics.h"
+	.file	26	"/usr/local/cuda-5.0/include/sm_35_intrinsics.h"
+	.file	27	"/usr/local/cuda-5.0/include/surface_functions.h"
+	.file	28	"/usr/local/cuda-5.0/include/texture_fetch_functions.h"
+	.file	29	"/usr/local/cuda-5.0/include/texture_indirect_functions.h"
+	.file	30	"/usr/local/cuda-5.0/include/surface_indirect_functions.h"
+	.file	31	"/usr/local/cuda-5.0/include/math_functions_dbl_ptx1.h"
+
+
+	.entry _Z8gpu_WDLAPdS_S_S_dS_S_S_S_S_S_S_S_S_S_S_iiii (
+		.param .u64 __cudaparm__Z8gpu_WDLAPdS_S_S_dS_S_S_S_S_S_S_S_S_S_S_iiii_out,
+		.param .u64 __cudaparm__Z8gpu_WDLAPdS_S_S_dS_S_S_S_S_S_S_S_S_S_S_iiii_per_idx,
+		.param .u64 __cudaparm__Z8gpu_WDLAPdS_S_S_dS_S_S_S_S_S_S_S_S_S_S_iiii_WLi,
+		.param .u64 __cudaparm__Z8gpu_WDLAPdS_S_S_dS_S_S_S_S_S_S_S_S_S_S_iiii_omega,
+		.param .f64 __cudaparm__Z8gpu_WDLAPdS_S_S_dS_S_S_S_S_S_S_S_S_S_S_iiii_beta,
+		.param .u64 __cudaparm__Z8gpu_WDLAPdS_S_S_dS_S_S_S_S_S_S_S_S_S_S_iiii_weight,
+		.param .u64 __cudaparm__Z8gpu_WDLAPdS_S_S_dS_S_S_S_S_S_S_S_S_S_S_iiii_sameid,
+		.param .u64 __cudaparm__Z8gpu_WDLAPdS_S_S_dS_S_S_S_S_S_S_S_S_S_S_iiii_diffid,
+		.param .u64 __cudaparm__Z8gpu_WDLAPdS_S_S_dS_S_S_S_S_S_S_S_S_S_S_iiii_samemat,
+		.param .u64 __cudaparm__Z8gpu_WDLAPdS_S_S_dS_S_S_S_S_S_S_S_S_S_S_iiii_diffmat,
+		.param .u64 __cudaparm__Z8gpu_WDLAPdS_S_S_dS_S_S_S_S_S_S_S_S_S_S_iiii_sidx,
+		.param .u64 __cudaparm__Z8gpu_WDLAPdS_S_S_dS_S_S_S_S_S_S_S_S_S_S_iiii_didx,
+		.param .u64 __cudaparm__Z8gpu_WDLAPdS_S_S_dS_S_S_S_S_S_S_S_S_S_S_iiii_dist,
+		.param .u64 __cudaparm__Z8gpu_WDLAPdS_S_S_dS_S_S_S_S_S_S_S_S_S_S_iiii_idxsame,
+		.param .u64 __cudaparm__Z8gpu_WDLAPdS_S_S_dS_S_S_S_S_S_S_S_S_S_S_iiii_idxdiff,
+		.param .u64 __cudaparm__Z8gpu_WDLAPdS_S_S_dS_S_S_S_S_S_S_S_S_S_S_iiii_gnd,
+		.param .s32 __cudaparm__Z8gpu_WDLAPdS_S_S_dS_S_S_S_S_S_S_S_S_S_S_iiii_numRow,
+		.param .s32 __cudaparm__Z8gpu_WDLAPdS_S_S_dS_S_S_S_S_S_S_S_S_S_S_iiii_numElemPerThread,
+		.param .s32 __cudaparm__Z8gpu_WDLAPdS_S_S_dS_S_S_S_S_S_S_S_S_S_S_iiii_k1,
+		.param .s32 __cudaparm__Z8gpu_WDLAPdS_S_S_dS_S_S_S_S_S_S_S_S_S_S_iiii_k2)
+	{
+	.reg .u16 %rh<4>;
+	.reg .u32 %r<187>;
+	.reg .u64 %rd<181>;
+	.reg .f32 %f<14>;
+	.reg .f64 %fd<70>;
+	.reg .pred %p<58>;
+	.loc	14	89	0
+$LDWbegin__Z8gpu_WDLAPdS_S_S_dS_S_S_S_S_S_S_S_S_S_S_iiii:
+	.loc	14	99	0
+	mov.u16 	%rh1, %ctaid.x;
+	mov.u16 	%rh2, %ntid.x;
+	mul.wide.u16 	%r1, %rh1, %rh2;
+	cvt.u32.u16 	%r2, %tid.x;
+	add.u32 	%r3, %r2, %r1;
+	ld.param.s32 	%r4, [__cudaparm__Z8gpu_WDLAPdS_S_S_dS_S_S_S_S_S_S_S_S_S_S_iiii_numElemPerThread];
+	mul.lo.u32 	%r5, %r4, %r3;
+	mov.s32 	%r6, %r5;
+	add.s32 	%r7, %r4, %r5;
+	setp.le.s32 	%p1, %r7, %r5;
+	@%p1 bra 	$Lt_0_65538;
+	ld.param.s32 	%r8, [__cudaparm__Z8gpu_WDLAPdS_S_S_dS_S_S_S_S_S_S_S_S_S_S_iiii_numRow];
+	setp.le.s32 	%p2, %r8, %r5;
+	@%p2 bra 	$Lt_0_65538;
+	mov.s32 	%r9, 0;
+	ld.param.s32 	%r8, [__cudaparm__Z8gpu_WDLAPdS_S_S_dS_S_S_S_S_S_S_S_S_S_S_iiii_numRow];
+	setp.gt.s32 	%p3, %r8, %r9;
+	ld.param.s32 	%r10, [__cudaparm__Z8gpu_WDLAPdS_S_S_dS_S_S_S_S_S_S_S_S_S_S_iiii_k1];
+	add.s32 	%r11, %r10, 1;
+	ld.param.s32 	%r12, [__cudaparm__Z8gpu_WDLAPdS_S_S_dS_S_S_S_S_S_S_S_S_S_S_iiii_k2];
+	add.s32 	%r13, %r12, 1;
+	add.s32 	%r14, %r10, %r12;
+	mov.s32 	%r15, 0;
+	setp.gt.s32 	%p4, %r10, %r15;
+	mov.s32 	%r16, 1;
+	setp.ge.s32 	%p5, %r10, %r16;
+	shr.s32 	%r17, %r11, 31;
+	mov.s32 	%r18, 1;
+	and.b32 	%r19, %r17, %r18;
+	add.s32 	%r20, %r19, %r11;
+	shr.s32 	%r21, %r20, 1;
+	shr.s32 	%r22, %r13, 31;
+	mov.s32 	%r23, 1;
+	and.b32 	%r24, %r22, %r23;
+	add.s32 	%r25, %r24, %r13;
+	shr.s32 	%r26, %r25, 1;
+	add.s32 	%r27, %r14, 1;
+	setp.gt.s32 	%p6, %r14, %r10;
+	mov.s32 	%r28, 0;
+	setp.gt.s32 	%p7, %r14, %r28;
+	mov.s32 	%r29, 0;
+	setp.gt.s32 	%p8, %r21, %r29;
+	setp.lt.s32 	%p9, %r21, %r10;
+	add.s32 	%r30, %r26, %r10;
+	mov.s32 	%r31, 1;
+	setp.gt.s32 	%p10, %r27, %r31;
+	mul.lo.s32 	%r32, %r27, %r5;
+	setp.gt.s32 	%p11, %r27, %r11;
+	mov.s32 	%r33, 0;
+	setp.gt.s32 	%p12, %r27, %r33;
+	setp.gt.s32 	%p13, %r30, %r10;
+	setp.gt.s32 	%p14, %r27, %r30;
+	mul.lo.s32 	%r34, %r27, %r32;
+	mul.lo.s32 	%r35, %r27, %r27;
+	cvt.s64.s32 	%rd1, %r34;
+	mul.wide.s32 	%rd2, %r34, 8;
+	cvt.s64.s32 	%rd3, %r35;
+	mul.wide.s32 	%rd4, %r35, 8;
+	ld.param.u64 	%rd5, [__cudaparm__Z8gpu_WDLAPdS_S_S_dS_S_S_S_S_S_S_S_S_S_S_iiii_per_idx];
+	ld.param.u64 	%rd6, [__cudaparm__Z8gpu_WDLAPdS_S_S_dS_S_S_S_S_S_S_S_S_S_S_iiii_WLi];
+	ld.param.u64 	%rd7, [__cudaparm__Z8gpu_WDLAPdS_S_S_dS_S_S_S_S_S_S_S_S_S_S_iiii_diffmat];
+	ld.param.u64 	%rd8, [__cudaparm__Z8gpu_WDLAPdS_S_S_dS_S_S_S_S_S_S_S_S_S_S_iiii_samemat];
+	mov.s32 	%r36, 0;
+	mov.s32 	%r37, 0;
+$L_0_34306:
+	@!%p3 bra 	$Lt_0_66050;
+	mov.s32 	%r38, %r8;
+	mul.lo.s32 	%r39, %r6, %r8;
+	ld.param.u64 	%rd9, [__cudaparm__Z8gpu_WDLAPdS_S_S_dS_S_S_S_S_S_S_S_S_S_S_iiii_gnd];
+	cvt.s64.s32 	%rd10, %r6;
+	mul.wide.s32 	%rd11, %r6, 8;
+	add.u64 	%rd12, %rd9, %rd11;
+	mov.s64 	%rd13, %rd9;
+	mov.s32 	%r40, 0;
+	mov.s32 	%r41, %r38;
+$Lt_0_36354:
+ //<loop> Loop body line 99, nesting depth: 1, estimated iterations: unknown
+	.loc	14	103	0
+	ld.global.f64 	%fd1, [%rd12+0];
+	cvt.rzi.s32.f64 	%r42, %fd1;
+	cvt.rn.f64.s32 	%fd2, %r42;
+	ld.global.f64 	%fd3, [%rd13+0];
+	setp.eq.f64 	%p15, %fd2, %fd3;
+	@!%p15 bra 	$Lt_0_66306;
+	setp.eq.s32 	%p16, %r6, %r40;
+	@%p16 bra 	$Lt_0_66306;
+	.loc	14	105	0
+	cvt.rn.f64.s32 	%fd4, %r40;
+	ld.param.u64 	%rd14, [__cudaparm__Z8gpu_WDLAPdS_S_S_dS_S_S_S_S_S_S_S_S_S_S_iiii_idxsame];
+	add.s32 	%r43, %r39, %r37;
+	cvt.s64.s32 	%rd15, %r43;
+	mul.wide.s32 	%rd16, %r43, 8;
+	add.u64 	%rd17, %rd14, %rd16;
+	st.global.f64 	[%rd17+0], %fd4;
+	.loc	14	106	0
+	add.s32 	%r37, %r37, 1;
+	ld.global.f64 	%fd3, [%rd13+0];
+$Lt_0_66306:
+$L_0_35330:
+	setp.neu.f64 	%p17, %fd2, %fd3;
+	@!%p17 bra 	$Lt_0_36610;
+	.loc	14	109	0
+	cvt.rn.f64.s32 	%fd5, %r40;
+	ld.param.u64 	%rd18, [__cudaparm__Z8gpu_WDLAPdS_S_S_dS_S_S_S_S_S_S_S_S_S_S_iiii_idxdiff];
+	add.s32 	%r44, %r39, %r36;
+	cvt.s64.s32 	%rd19, %r44;
+	mul.wide.s32 	%rd20, %r44, 8;
+	add.u64 	%rd21, %rd18, %rd20;
+	st.global.f64 	[%rd21+0], %fd5;
+	.loc	14	110	0
+	add.s32 	%r36, %r36, 1;
+$Lt_0_36610:
+	add.s32 	%r40, %r40, 1;
+	add.u64 	%rd13, %rd13, 8;
+	setp.ne.s32 	%p18, %r40, %r8;
+	@%p18 bra 	$Lt_0_36354;
+	bra.uni 	$Lt_0_35842;
+$Lt_0_66050:
+	mul.lo.s32 	%r39, %r6, %r8;
+$Lt_0_35842:
+	mov.s32 	%r45, 0;
+	setp.gt.s32 	%p19, %r37, %r45;
+	cvt.s64.s32 	%rd22, %r39;
+	mul.wide.s32 	%rd23, %r39, 8;
+	@!%p19 bra 	$Lt_0_37378;
+	mov.s32 	%r46, %r37;
+	mov.s32 	%r47, %r39;
+	add.s32 	%r48, %r39, %r37;
+	ld.param.u64 	%rd24, [__cudaparm__Z8gpu_WDLAPdS_S_S_dS_S_S_S_S_S_S_S_S_S_S_iiii_idxsame];
+	add.u64 	%rd25, %rd24, %rd23;
+	add.u64 	%rd26, %rd23, %rd8;
+	ld.param.u64 	%rd27, [__cudaparm__Z8gpu_WDLAPdS_S_S_dS_S_S_S_S_S_S_S_S_S_S_iiii_dist];
+	mov.s32 	%r49, %r46;
+$Lt_0_38402:
+ //<loop> Loop body line 110, nesting depth: 1, estimated iterations: unknown
+	.loc	14	118	0
+	ld.global.f64 	%fd6, [%rd25+0];
+	cvt.rzi.s32.f64 	%r50, %fd6;
+	add.s32 	%r51, %r39, %r50;
+	cvt.s64.s32 	%rd28, %r51;
+	mul.wide.s32 	%rd29, %r51, 8;
+	.loc	14	110	0
+	ld.param.u64 	%rd27, [__cudaparm__Z8gpu_WDLAPdS_S_S_dS_S_S_S_S_S_S_S_S_S_S_iiii_dist];
+	.loc	14	118	0
+	add.u64 	%rd30, %rd27, %rd29;
+	ld.global.f64 	%fd7, [%rd30+0];
+	st.global.f64 	[%rd26+0], %fd7;
+	add.s32 	%r47, %r47, 1;
+	add.u64 	%rd26, %rd26, 8;
+	add.u64 	%rd25, %rd25, 8;
+	setp.ne.s32 	%p20, %r47, %r48;
+	@%p20 bra 	$Lt_0_38402;
+$Lt_0_37378:
+	mov.s32 	%r52, 0;
+	setp.gt.s32 	%p21, %r36, %r52;
+	@!%p21 bra 	$Lt_0_38914;
+	mov.s32 	%r53, %r36;
+	mov.s32 	%r47, %r39;
+	add.s32 	%r54, %r39, %r36;
+	ld.param.u64 	%rd31, [__cudaparm__Z8gpu_WDLAPdS_S_S_dS_S_S_S_S_S_S_S_S_S_S_iiii_idxdiff];
+	add.u64 	%rd32, %rd31, %rd23;
+	add.u64 	%rd33, %rd23, %rd7;
+	ld.param.u64 	%rd27, [__cudaparm__Z8gpu_WDLAPdS_S_S_dS_S_S_S_S_S_S_S_S_S_S_iiii_dist];
+	mov.s32 	%r55, %r53;
+$Lt_0_39938:
+ //<loop> Loop body line 118, nesting depth: 1, estimated iterations: unknown
+	.loc	14	123	0
+	ld.global.f64 	%fd8, [%rd32+0];
+	cvt.rzi.s32.f64 	%r56, %fd8;
+	add.s32 	%r57, %r39, %r56;
+	cvt.s64.s32 	%rd34, %r57;
+	mul.wide.s32 	%rd35, %r57, 8;
+	.loc	14	118	0
+	ld.param.u64 	%rd27, [__cudaparm__Z8gpu_WDLAPdS_S_S_dS_S_S_S_S_S_S_S_S_S_S_iiii_dist];
+	.loc	14	123	0
+	add.u64 	%rd36, %rd27, %rd35;
+	ld.global.f64 	%fd9, [%rd36+0];
+	st.global.f64 	[%rd33+0], %fd9;
+	add.s32 	%r47, %r47, 1;
+	add.u64 	%rd33, %rd33, 8;
+	add.u64 	%rd32, %rd32, 8;
+	setp.ne.s32 	%p22, %r47, %r54;
+	@%p22 bra 	$Lt_0_39938;
+$Lt_0_38914:
+	max.s32 	%r58, %r36, %r37;
+	mov.u32 	%r59, 0;
+	setp.le.s32 	%p23, %r58, %r59;
+	@%p23 bra 	$Lt_0_40450;
+	mov.s32 	%r60, %r58;
+	mul.lo.s32 	%r61, %r11, %r6;
+	mul.lo.s32 	%r62, %r13, %r6;
+	cvt.s64.s32 	%rd37, %r61;
+	cvt.s64.s32 	%rd38, %r62;
+	mul.wide.s32 	%rd39, %r61, 8;
+	mul.wide.s32 	%rd40, %r62, 8;
+	ld.param.u64 	%rd41, [__cudaparm__Z8gpu_WDLAPdS_S_S_dS_S_S_S_S_S_S_S_S_S_S_iiii_sidx];
+	add.u64 	%rd42, %rd41, %rd39;
+	ld.param.u64 	%rd43, [__cudaparm__Z8gpu_WDLAPdS_S_S_dS_S_S_S_S_S_S_S_S_S_S_iiii_didx];
+	add.u64 	%rd44, %rd43, %rd40;
+	mov.s32 	%r63, 0;
+	mov.s32 	%r64, %r60;
+$Lt_0_40962:
+ //<loop> Loop body line 123, nesting depth: 1, estimated iterations: unknown
+	.loc	14	129	0
+	cvt.rn.f64.s32 	%fd10, %r63;
+	st.global.f64 	[%rd42+0], %fd10;
+	.loc	14	130	0
+	st.global.f64 	[%rd44+0], %fd10;
+	add.s32 	%r63, %r63, 1;
+	add.u64 	%rd44, %rd44, 8;
+	add.u64 	%rd42, %rd42, 8;
+	setp.ne.s32 	%p24, %r58, %r63;
+	@%p24 bra 	$Lt_0_40962;
+$Lt_0_40450:
+	.loc	14	132	0
+	sub.s32 	%r65, %r37, 1;
+	mov.u32 	%r66, 0;
+	setp.lt.s32 	%p25, %r65, %r66;
+	@%p25 bra 	$Lt_0_41474;
+	mov.s32 	%r67, %r37;
+	mov.s32 	%r68, 0;
+	mov.s32 	%r69, %r67;
+$Lt_0_41986:
+ //<loop> Loop body line 132, nesting depth: 1, estimated iterations: unknown
+	.loc	14	58	0
+	add.s32 	%r70, %r39, %r68;
+	cvt.s64.s32 	%rd45, %r70;
+	mul.wide.s32 	%rd46, %r70, 8;
+	add.u64 	%rd47, %rd8, %rd46;
+	ld.global.f64 	%fd11, [%rd47+0];
+	mov.f64 	%fd12, %fd11;
+	.loc	14	59	0
+	mov.s32 	%r71, %r68;
+	.loc	14	62	0
+	add.s32 	%r72, %r68, 1;
+	mov.s32 	%r73, %r72;
+	setp.lt.s32 	%p26, %r65, %r72;
+	@%p26 bra 	$Lt_0_42242;
+	sub.s32 	%r74, %r37, %r68;
+	sub.s32 	%r75, %r74, 1;
+	mov.s32 	%r76, %r75;
+$Lt_0_42754:
+ //<loop> Loop body line 62, nesting depth: 2, estimated iterations: unknown
+	.loc	14	64	0
+	add.s32 	%r77, %r39, %r73;
+	cvt.s64.s32 	%rd48, %r77;
+	mul.wide.s32 	%rd49, %r77, 8;
+	add.u64 	%rd50, %rd8, %rd49;
+	ld.global.f64 	%fd13, [%rd50+0];
+	setp.gt.f64 	%p27, %fd12, %fd13;
+	@!%p27 bra 	$Lt_0_43010;
+	.loc	14	68	0
+	mov.s32 	%r71, %r73;
+	.loc	14	69	0
+	mov.f64 	%fd12, %fd13;
+$Lt_0_43010:
+	add.s32 	%r73, %r73, 1;
+	setp.ne.s32 	%p28, %r73, %r37;
+	@%p28 bra 	$Lt_0_42754;
+$Lt_0_42242:
+	setp.eq.s32 	%p29, %r71, %r68;
+	@%p29 bra 	$Lt_0_43778;
+	.loc	14	76	0
+	add.s32 	%r78, %r39, %r71;
+	cvt.s64.s32 	%rd51, %r78;
+	mul.wide.s32 	%rd52, %r78, 8;
+	add.u64 	%rd53, %rd8, %rd52;
+	st.global.f64 	[%rd53+0], %fd11;
+	.loc	14	77	0
+	st.global.f64 	[%rd47+0], %fd12;
+	.loc	14	79	0
+	mul.lo.s32 	%r79, %r10, %r6;
+	ld.param.u64 	%rd54, [__cudaparm__Z8gpu_WDLAPdS_S_S_dS_S_S_S_S_S_S_S_S_S_S_iiii_sidx];
+	add.s32 	%r80, %r79, %r68;
+	cvt.s64.s32 	%rd55, %r80;
+	mul.wide.s32 	%rd56, %r80, 8;
+	add.u64 	%rd57, %rd54, %rd56;
+	ld.global.f64 	%fd14, [%rd57+0];
+	.loc	14	80	0
+	add.s32 	%r81, %r79, %r71;
+	cvt.s64.s32 	%rd58, %r81;
+	mul.wide.s32 	%rd59, %r81, 8;
+	add.u64 	%rd60, %rd54, %rd59;
+	ld.global.f64 	%fd15, [%rd60+0];
+	st.global.f64 	[%rd57+0], %fd15;
+	.loc	14	81	0
+	st.global.f64 	[%rd60+0], %fd14;
+$Lt_0_43778:
+	mov.s32 	%r68, %r72;
+	setp.ne.s32 	%p30, %r72, %r37;
+	@%p30 bra 	$Lt_0_41986;
+$Lt_0_41474:
+	.loc	14	133	0
+	sub.s32 	%r82, %r36, 1;
+	mov.u32 	%r83, 0;
+	setp.lt.s32 	%p31, %r82, %r83;
+	@%p31 bra 	$Lt_0_44546;
+	mov.s32 	%r84, %r36;
+	mov.s32 	%r68, 0;
+	mov.s32 	%r85, %r84;
+$Lt_0_45058:
+ //<loop> Loop body line 133, nesting depth: 1, estimated iterations: unknown
+	.loc	14	58	0
+	add.s32 	%r86, %r39, %r68;
+	cvt.s64.s32 	%rd61, %r86;
+	mul.wide.s32 	%rd62, %r86, 8;
+	add.u64 	%rd63, %rd7, %rd62;
+	ld.global.f64 	%fd16, [%rd63+0];
+	mov.f64 	%fd12, %fd16;
+	.loc	14	59	0
+	mov.s32 	%r71, %r68;
+	.loc	14	62	0
+	add.s32 	%r87, %r68, 1;
+	mov.s32 	%r73, %r87;
+	setp.lt.s32 	%p32, %r82, %r87;
+	@%p32 bra 	$Lt_0_45314;
+	sub.s32 	%r88, %r36, %r68;
+	sub.s32 	%r89, %r88, 1;
+	mov.s32 	%r90, %r89;
+$Lt_0_45826:
+ //<loop> Loop body line 62, nesting depth: 2, estimated iterations: unknown
+	.loc	14	64	0
+	add.s32 	%r91, %r39, %r73;
+	cvt.s64.s32 	%rd64, %r91;
+	mul.wide.s32 	%rd65, %r91, 8;
+	add.u64 	%rd66, %rd7, %rd65;
+	ld.global.f64 	%fd13, [%rd66+0];
+	setp.gt.f64 	%p33, %fd12, %fd13;
+	@!%p33 bra 	$Lt_0_46082;
+	.loc	14	68	0
+	mov.s32 	%r71, %r73;
+	.loc	14	69	0
+	mov.f64 	%fd12, %fd13;
+$Lt_0_46082:
+	add.s32 	%r73, %r73, 1;
+	setp.ne.s32 	%p34, %r73, %r36;
+	@%p34 bra 	$Lt_0_45826;
+$Lt_0_45314:
+	setp.eq.s32 	%p35, %r71, %r68;
+	@%p35 bra 	$Lt_0_46850;
+	.loc	14	76	0
+	add.s32 	%r92, %r39, %r71;
+	cvt.s64.s32 	%rd67, %r92;
+	mul.wide.s32 	%rd68, %r92, 8;
+	add.u64 	%rd69, %rd7, %rd68;
+	st.global.f64 	[%rd69+0], %fd16;
+	.loc	14	77	0
+	st.global.f64 	[%rd63+0], %fd12;
+	.loc	14	79	0
+	mul.lo.s32 	%r93, %r6, %r12;
+	ld.param.u64 	%rd70, [__cudaparm__Z8gpu_WDLAPdS_S_S_dS_S_S_S_S_S_S_S_S_S_S_iiii_didx];
+	add.s32 	%r94, %r93, %r68;
+	cvt.s64.s32 	%rd71, %r94;
+	mul.wide.s32 	%rd72, %r94, 8;
+	add.u64 	%rd73, %rd70, %rd72;
+	ld.global.f64 	%fd17, [%rd73+0];
+	.loc	14	80	0
+	add.s32 	%r95, %r93, %r71;
+	cvt.s64.s32 	%rd74, %r95;
+	mul.wide.s32 	%rd75, %r95, 8;
+	add.u64 	%rd76, %rd70, %rd75;
+	ld.global.f64 	%fd18, [%rd76+0];
+	st.global.f64 	[%rd73+0], %fd18;
+	.loc	14	81	0
+	st.global.f64 	[%rd76+0], %fd17;
+$Lt_0_46850:
+	mov.s32 	%r68, %r87;
+	setp.ne.s32 	%p36, %r87, %r36;
+	@%p36 bra 	$Lt_0_45058;
+$Lt_0_44546:
+	.loc	14	133	0
+	@!%p19 bra 	$Lt_0_47618;
+	mov.s32 	%r96, %r37;
+	mul.lo.s32 	%r61, %r11, %r6;
+	mov.s32 	%r97, %r61;
+	add.s32 	%r98, %r61, %r37;
+	cvt.s64.s32 	%rd77, %r61;
+	mul.wide.s32 	%rd78, %r61, 8;
+	ld.param.u64 	%rd79, [__cudaparm__Z8gpu_WDLAPdS_S_S_dS_S_S_S_S_S_S_S_S_S_S_iiii_sameid];
+	add.u64 	%rd80, %rd79, %rd78;
+	ld.param.u64 	%rd81, [__cudaparm__Z8gpu_WDLAPdS_S_S_dS_S_S_S_S_S_S_S_S_S_S_iiii_sidx];
+	add.u64 	%rd42, %rd81, %rd78;
+	ld.param.u64 	%rd82, [__cudaparm__Z8gpu_WDLAPdS_S_S_dS_S_S_S_S_S_S_S_S_S_S_iiii_idxsame];
+	mov.s32 	%r99, %r96;
+$Lt_0_48130:
+ //<loop> Loop body line 133, nesting depth: 1, estimated iterations: unknown
+	.loc	14	137	0
+	ld.global.f64 	%fd19, [%rd42+0];
+	cvt.rzi.s32.f64 	%r100, %fd19;
+	add.s32 	%r101, %r39, %r100;
+	cvt.s64.s32 	%rd83, %r101;
+	mul.wide.s32 	%rd84, %r101, 8;
+	.loc	14	133	0
+	ld.param.u64 	%rd82, [__cudaparm__Z8gpu_WDLAPdS_S_S_dS_S_S_S_S_S_S_S_S_S_S_iiii_idxsame];
+	.loc	14	137	0
+	add.u64 	%rd85, %rd82, %rd84;
+	ld.global.f64 	%fd20, [%rd85+0];
+	st.global.f64 	[%rd80+0], %fd20;
+	add.s32 	%r97, %r97, 1;
+	add.u64 	%rd42, %rd42, 8;
+	add.u64 	%rd80, %rd80, 8;
+	setp.ne.s32 	%p37, %r97, %r98;
+	@%p37 bra 	$Lt_0_48130;
+$Lt_0_47618:
+	@!%p21 bra 	$Lt_0_48642;
+	mov.s32 	%r102, %r36;
+	mul.lo.s32 	%r62, %r13, %r6;
+	mov.s32 	%r103, %r62;
+	add.s32 	%r104, %r62, %r36;
+	cvt.s64.s32 	%rd86, %r62;
+	mul.wide.s32 	%rd87, %r62, 8;
+	ld.param.u64 	%rd88, [__cudaparm__Z8gpu_WDLAPdS_S_S_dS_S_S_S_S_S_S_S_S_S_S_iiii_didx];
+	add.u64 	%rd44, %rd88, %rd87;
+	ld.param.u64 	%rd89, [__cudaparm__Z8gpu_WDLAPdS_S_S_dS_S_S_S_S_S_S_S_S_S_S_iiii_diffid];
+	add.u64 	%rd90, %rd89, %rd87;
+	ld.param.u64 	%rd91, [__cudaparm__Z8gpu_WDLAPdS_S_S_dS_S_S_S_S_S_S_S_S_S_S_iiii_idxdiff];
+	mov.s32 	%r105, %r102;
+$Lt_0_49154:
+ //<loop> Loop body line 137, nesting depth: 1, estimated iterations: unknown
+	.loc	14	140	0
+	ld.global.f64 	%fd21, [%rd44+0];
+	cvt.rzi.s32.f64 	%r106, %fd21;
+	add.s32 	%r107, %r39, %r106;
+	cvt.s64.s32 	%rd92, %r107;
+	mul.wide.s32 	%rd93, %r107, 8;
+	.loc	14	137	0
+	ld.param.u64 	%rd91, [__cudaparm__Z8gpu_WDLAPdS_S_S_dS_S_S_S_S_S_S_S_S_S_S_iiii_idxdiff];
+	.loc	14	140	0
+	add.u64 	%rd94, %rd91, %rd93;
+	ld.global.f64 	%fd22, [%rd94+0];
+	st.global.f64 	[%rd90+0], %fd22;
+	add.s32 	%r103, %r103, 1;
+	add.u64 	%rd90, %rd90, 8;
+	add.u64 	%rd44, %rd44, 8;
+	setp.ne.s32 	%p38, %r103, %r104;
+	@%p38 bra 	$Lt_0_49154;
+$Lt_0_48642:
+	.loc	14	145	0
+	@!%p8 bra 	$Lt_0_49666;
+	mov.s32 	%r108, %r21;
+	add.s32 	%r109, %r14, 2;
+	mul.lo.s32 	%r110, %r6, %r109;
+	mov.s32 	%r111, %r110;
+	add.s32 	%r112, %r110, %r21;
+	ld.param.u64 	%rd95, [__cudaparm__Z8gpu_WDLAPdS_S_S_dS_S_S_S_S_S_S_S_S_S_S_iiii_weight];
+	cvt.s64.s32 	%rd96, %r110;
+	mul.wide.s32 	%rd97, %r110, 8;
+	add.u64 	%rd98, %rd95, %rd97;
+	mov.s32 	%r113, %r108;
+$Lt_0_50178:
+ //<loop> Loop body line 145, nesting depth: 1, estimated iterations: unknown
+	.loc	14	10	0
+	mov.f64 	%fd23, 0d3ff0000000000000;	// 1
+	st.global.f64 	[%rd98+0], %fd23;
+	add.s32 	%r111, %r111, 1;
+	add.u64 	%rd98, %rd98, 8;
+	setp.ne.s32 	%p39, %r111, %r112;
+	@%p39 bra 	$Lt_0_50178;
+$Lt_0_49666:
+	@!%p13 bra 	$Lt_0_50690;
+	mov.s32 	%r114, %r26;
+	add.s32 	%r115, %r14, 2;
+	mul.lo.s32 	%r110, %r115, %r6;
+	add.s32 	%r111, %r110, %r10;
+	add.s32 	%r116, %r110, %r30;
+	ld.param.u64 	%rd99, [__cudaparm__Z8gpu_WDLAPdS_S_S_dS_S_S_S_S_S_S_S_S_S_S_iiii_weight];
+	cvt.s64.s32 	%rd100, %r111;
+	mul.wide.s32 	%rd101, %r111, 8;
+	add.u64 	%rd98, %rd99, %rd101;
+	mov.s32 	%r117, %r114;
+$Lt_0_51202:
+ //<loop> Loop body line 10, nesting depth: 1, estimated iterations: unknown
+	.loc	14	11	0
+	mov.f64 	%fd24, 0d3ff0000000000000;	// 1
+	st.global.f64 	[%rd98+0], %fd24;
+	add.s32 	%r111, %r111, 1;
+	add.u64 	%rd98, %rd98, 8;
+	setp.ne.s32 	%p40, %r111, %r116;
+	@%p40 bra 	$Lt_0_51202;
+$Lt_0_50690:
+	.loc	14	13	0
+	add.s32 	%r118, %r39, %r10;
+	add.s32 	%r119, %r39, %r21;
+	cvt.s64.s32 	%rd102, %r119;
+	mul.wide.s32 	%rd103, %r119, 8;
+	cvt.s64.s32 	%rd104, %r118;
+	mul.wide.s32 	%rd105, %r118, 8;
+	add.u64 	%rd106, %rd8, %rd105;
+	add.u64 	%rd107, %rd103, %rd8;
+	ld.global.f64 	%fd25, [%rd106+0];
+	ld.global.f64 	%fd26, [%rd107+0];
+	sub.f64 	%fd27, %fd25, %fd26;
+	.loc	14	14	0
+	add.f64 	%fd28, %fd25, %fd26;
+	.loc	14	15	0
+	add.s32 	%r120, %r39, %r26;
+	cvt.s64.s32 	%rd108, %r120;
+	mul.wide.s32 	%rd109, %r120, 8;
+	add.s32 	%r121, %r39, %r12;
+	cvt.s64.s32 	%rd110, %r121;
+	mul.wide.s32 	%rd111, %r121, 8;
+	add.u64 	%rd112, %rd7, %rd111;
+	add.u64 	%rd113, %rd109, %rd7;
+	ld.global.f64 	%fd29, [%rd112+0];
+	ld.global.f64 	%fd30, [%rd113+0];
+	sub.f64 	%fd31, %fd29, %fd30;
+	.loc	14	16	0
+	add.f64 	%fd32, %fd29, %fd30;
+	@!%p9 bra 	$Lt_0_51714;
+	sub.s32 	%r122, %r10, %r21;
+	cvt.rn.f32.f64 	%f1, %fd28;
+	cvt.rn.f32.f64 	%f2, %fd27;
+	mov.s32 	%r123, %r119;
+	add.s32 	%r115, %r14, 2;
+	mul.lo.s32 	%r124, %r115, %r6;
+	add.s32 	%r112, %r21, %r124;
+	mov.s64 	%rd114, %rd107;
+	ld.param.u64 	%rd115, [__cudaparm__Z8gpu_WDLAPdS_S_S_dS_S_S_S_S_S_S_S_S_S_S_iiii_weight];
+	cvt.s64.s32 	%rd116, %r112;
+	mul.wide.s32 	%rd117, %r112, 8;
+	add.u64 	%rd98, %rd115, %rd117;
+	mov.s32 	%r125, %r122;
+$Lt_0_52226:
+ //<loop> Loop body line 16, nesting depth: 1, estimated iterations: unknown
+	.loc	14	19	0
+	ld.global.f64 	%fd33, [%rd106+0];
+	ld.global.f64 	%fd34, [%rd114+0];
+	add.f64 	%fd35, %fd33, %fd34;
+	cvt.rn.f32.f64 	%f3, %fd35;
+	div.full.f32 	%f4, %f1, %f3;
+	cvt.f64.f32 	%fd36, %f4;
+	sub.f64 	%fd37, %fd33, %fd34;
+	cvt.rn.f32.f64 	%f5, %fd37;
+	div.full.f32 	%f6, %f5, %f2;
+	cvt.f64.f32 	%fd38, %f6;
+	mul.f64 	%fd39, %fd36, %fd38;
+	st.global.f64 	[%rd98+0], %fd39;
+	add.u64 	%rd98, %rd98, 8;
+	add.s32 	%r123, %r123, 1;
+	add.u64 	%rd114, %rd114, 8;
+	setp.ne.s32 	%p41, %r123, %r118;
+	@%p41 bra 	$Lt_0_52226;
+$Lt_0_51714:
+	@!%p14 bra 	$Lt_0_52738;
+	sub.s32 	%r126, %r14, %r30;
+	add.s32 	%r127, %r126, 1;
+	cvt.rn.f32.f64 	%f7, %fd32;
+	cvt.rn.f32.f64 	%f8, %fd31;
+	add.s32 	%r115, %r14, 2;
+	mov.s32 	%r128, %r120;
+	sub.s32 	%r129, %r27, %r10;
+	mul.lo.s32 	%r110, %r115, %r6;
+	add.s32 	%r130, %r129, %r39;
+	mov.s64 	%rd118, %rd113;
+	ld.param.u64 	%rd119, [__cudaparm__Z8gpu_WDLAPdS_S_S_dS_S_S_S_S_S_S_S_S_S_S_iiii_weight];
+	add.s32 	%r131, %r110, %r30;
+	cvt.s64.s32 	%rd120, %r131;
+	mul.wide.s32 	%rd121, %r131, 8;
+	add.u64 	%rd98, %rd119, %rd121;
+	mov.s32 	%r132, %r127;
+$Lt_0_53250:
+ //<loop> Loop body line 19, nesting depth: 1, estimated iterations: unknown
+	.loc	14	22	0
+	ld.global.f64 	%fd40, [%rd112+0];
+	ld.global.f64 	%fd41, [%rd118+0];
+	add.f64 	%fd42, %fd40, %fd41;
+	cvt.rn.f32.f64 	%f9, %fd42;
+	div.full.f32 	%f10, %f7, %f9;
+	cvt.f64.f32 	%fd43, %f10;
+	sub.f64 	%fd44, %fd40, %fd41;
+	cvt.rn.f32.f64 	%f11, %fd44;
+	div.full.f32 	%f12, %f11, %f8;
+	cvt.f64.f32 	%fd45, %f12;
+	mul.f64 	%fd46, %fd43, %fd45;
+	st.global.f64 	[%rd98+0], %fd46;
+	add.u64 	%rd98, %rd98, 8;
+	add.s32 	%r128, %r128, 1;
+	add.u64 	%rd118, %rd118, 8;
+	setp.ne.s32 	%p42, %r128, %r130;
+	@%p42 bra 	$Lt_0_53250;
+$Lt_0_52738:
+	.loc	14	146	0
+	@!%p4 bra 	$Lt_0_53762;
+	mov.s32 	%r133, %r10;
+	mul.lo.s32 	%r134, %r14, %r6;
+	ld.param.u64 	%rd122, [__cudaparm__Z8gpu_WDLAPdS_S_S_dS_S_S_S_S_S_S_S_S_S_S_iiii_omega];
+	mov.s32 	%r135, 0;
+	mov.s32 	%r136, %r133;
+$Lt_0_54274:
+ //<loop> Loop body line 146, nesting depth: 1, estimated iterations: unknown
+	.loc	14	32	0
+	mov.f64 	%fd47, 0d3ff0000000000000;	// 1
+	add.s32 	%r137, %r134, %r135;
+	cvt.s64.s32 	%rd123, %r137;
+	mul.wide.s32 	%rd124, %r137, 8;
+	.loc	14	146	0
+	ld.param.u64 	%rd122, [__cudaparm__Z8gpu_WDLAPdS_S_S_dS_S_S_S_S_S_S_S_S_S_S_iiii_omega];
+	.loc	14	32	0
+	add.u64 	%rd125, %rd122, %rd124;
+	st.global.f64 	[%rd125+0], %fd47;
+	add.s32 	%r135, %r135, 1;
+	setp.ne.s32 	%p43, %r10, %r135;
+	@%p43 bra 	$Lt_0_54274;
+$Lt_0_53762:
+	.loc	14	33	0
+	mov.s32 	%r135, %r10;
+	@!%p6 bra 	$Lt_0_54786;
+	mov.s32 	%r138, %r12;
+	ld.param.f64 	%fd48, [__cudaparm__Z8gpu_WDLAPdS_S_S_dS_S_S_S_S_S_S_S_S_S_S_iiii_beta];
+	neg.f64 	%fd49, %fd48;
+	mul.lo.s32 	%r134, %r14, %r6;
+	ld.param.u64 	%rd122, [__cudaparm__Z8gpu_WDLAPdS_S_S_dS_S_S_S_S_S_S_S_S_S_S_iiii_omega];
+	mov.s32 	%r139, %r138;
+$Lt_0_55298:
+ //<loop> Loop body line 33, nesting depth: 1, estimated iterations: unknown
+	add.s32 	%r140, %r134, %r135;
+	cvt.s64.s32 	%rd126, %r140;
+	mul.wide.s32 	%rd127, %r140, 8;
+	ld.param.u64 	%rd122, [__cudaparm__Z8gpu_WDLAPdS_S_S_dS_S_S_S_S_S_S_S_S_S_S_iiii_omega];
+	add.u64 	%rd128, %rd122, %rd127;
+	st.global.f64 	[%rd128+0], %fd49;
+	add.s32 	%r135, %r135, 1;
+	setp.ne.s32 	%p44, %r14, %r135;
+	@%p44 bra 	$Lt_0_55298;
+$Lt_0_54786:
+	@!%p7 bra 	$Lt_0_70402;
+	mov.s32 	%r141, %r14;
+	mul.lo.s32 	%r134, %r14, %r6;
+	add.s32 	%r115, %r14, 2;
+	mul.lo.s32 	%r110, %r115, %r6;
+	ld.param.u64 	%rd129, [__cudaparm__Z8gpu_WDLAPdS_S_S_dS_S_S_S_S_S_S_S_S_S_S_iiii_weight];
+	ld.param.u64 	%rd122, [__cudaparm__Z8gpu_WDLAPdS_S_S_dS_S_S_S_S_S_S_S_S_S_S_iiii_omega];
+	mov.s32 	%r135, 0;
+	mov.s32 	%r142, %r141;
+$Lt_0_56322:
+ //<loop> Loop body line 33, nesting depth: 1, estimated iterations: unknown
+	.loc	14	34	0
+	add.s32 	%r143, %r134, %r135;
+	cvt.s64.s32 	%rd130, %r143;
+	mul.wide.s32 	%rd131, %r143, 8;
+	.loc	14	33	0
+	ld.param.u64 	%rd122, [__cudaparm__Z8gpu_WDLAPdS_S_S_dS_S_S_S_S_S_S_S_S_S_S_iiii_omega];
+	.loc	14	34	0
+	add.u64 	%rd132, %rd122, %rd131;
+	ld.global.f64 	%fd50, [%rd132+0];
+	add.s32 	%r144, %r110, %r135;
+	cvt.s64.s32 	%rd133, %r144;
+	mul.wide.s32 	%rd134, %r144, 8;
+	.loc	14	33	0
+	ld.param.u64 	%rd129, [__cudaparm__Z8gpu_WDLAPdS_S_S_dS_S_S_S_S_S_S_S_S_S_S_iiii_weight];
+	.loc	14	34	0
+	add.u64 	%rd135, %rd129, %rd134;
+	ld.global.f64 	%fd51, [%rd135+0];
+	mul.f64 	%fd52, %fd50, %fd51;
+	st.global.f64 	[%rd132+0], %fd52;
+	add.s32 	%r135, %r135, 1;
+	setp.ne.s32 	%p45, %r14, %r135;
+	@%p45 bra 	$Lt_0_56322;
+$Lt_0_55810:
+	@!%p7 bra 	$Lt_0_70402;
+	mov.s32 	%r145, %r14;
+	mul.lo.s32 	%r134, %r14, %r6;
+	ld.param.u64 	%rd122, [__cudaparm__Z8gpu_WDLAPdS_S_S_dS_S_S_S_S_S_S_S_S_S_S_iiii_omega];
+	mov.s32 	%r135, 0;
+	mov.f64 	%fd53, 0d0000000000000000;	// 0
+	mov.s32 	%r146, %r145;
+$Lt_0_57346:
+ //<loop> Loop body line 34, nesting depth: 1, estimated iterations: unknown
+	.loc	14	35	0
+	add.s32 	%r147, %r134, %r135;
+	cvt.s64.s32 	%rd136, %r147;
+	mul.wide.s32 	%rd137, %r147, 8;
+	.loc	14	34	0
+	ld.param.u64 	%rd122, [__cudaparm__Z8gpu_WDLAPdS_S_S_dS_S_S_S_S_S_S_S_S_S_S_iiii_omega];
+	.loc	14	35	0
+	add.u64 	%rd138, %rd122, %rd137;
+	ld.global.f64 	%fd54, [%rd138+0];
+	add.f64 	%fd53, %fd54, %fd53;
+	add.s32 	%r135, %r135, 1;
+	setp.ne.s32 	%p46, %r14, %r135;
+	@%p46 bra 	$Lt_0_57346;
+	bra.uni 	$Lt_0_56834;
+$Lt_0_70402:
+	mov.f64 	%fd53, 0d0000000000000000;	// 0
+$Lt_0_56834:
+	@!%p10 bra 	$Lt_0_60418;
+	mov.s32 	%r148, %r14;
+	mov.s32 	%r135, 1;
+	mov.s32 	%r149, %r148;
+$Lt_0_58370:
+ //<loop> Loop body line 35, nesting depth: 1, estimated iterations: unknown
+	mov.s32 	%r150, %r14;
+	add.s32 	%r151, %r6, %r135;
+	mul.lo.s32 	%r152, %r151, %r27;
+	add.s32 	%r153, %r152, 1;
+	add.s32 	%r154, %r27, %r152;
+	add.s32 	%r155, %r152, %r135;
+	cvt.s64.s32 	%rd139, %r153;
+	mul.wide.s32 	%rd140, %r153, 8;
+	add.u64 	%rd141, %rd6, %rd140;
+	mov.s32 	%r156, %r150;
+$Lt_0_59138:
+ //<loop> Loop body line 35, nesting depth: 2, estimated iterations: unknown
+	setp.ne.s32 	%p47, %r153, %r155;
+	@%p47 bra 	$Lt_0_59650;
+	.loc	14	41	0
+	ld.param.u64 	%rd142, [__cudaparm__Z8gpu_WDLAPdS_S_S_dS_S_S_S_S_S_S_S_S_S_S_iiii_omega];
+	mul.lo.s32 	%r157, %r14, %r6;
+	add.s32 	%r158, %r135, %r157;
+	cvt.s64.s32 	%rd143, %r158;
+	mul.wide.s32 	%rd144, %r158, 8;
+	add.u64 	%rd145, %rd142, %rd144;
+	ld.global.f64 	%fd55, [%rd145+-8];
+	st.global.f64 	[%rd141+0], %fd55;
+	bra.uni 	$Lt_0_59394;
+$Lt_0_59650:
+	.loc	14	42	0
+	mov.f64 	%fd56, 0d0000000000000000;	// 0
+	st.global.f64 	[%rd141+0], %fd56;
+$Lt_0_59394:
+	add.s32 	%r153, %r153, 1;
+	add.u64 	%rd141, %rd141, 8;
+	setp.ne.s32 	%p48, %r153, %r154;
+	@%p48 bra 	$Lt_0_59138;
+	add.s32 	%r135, %r135, 1;
+	setp.ne.s32 	%p49, %r27, %r135;
+	@%p49 bra 	$Lt_0_58370;
+$Lt_0_57858:
+	@!%p10 bra 	$Lt_0_60418;
+	mov.s32 	%r159, %r14;
+	mul.lo.s32 	%r134, %r14, %r6;
+	cvt.s64.s32 	%rd146, %r27;
+	mul.wide.s32 	%rd147, %r27, 8;
+	add.s32 	%r160, %r27, %r32;
+	cvt.s64.s32 	%rd148, %r160;
+	mul.wide.s32 	%rd149, %r160, 8;
+	add.u64 	%rd150, %rd6, %rd149;
+	ld.param.u64 	%rd122, [__cudaparm__Z8gpu_WDLAPdS_S_S_dS_S_S_S_S_S_S_S_S_S_S_iiii_omega];
+	mov.s32 	%r135, 1;
+	mov.s32 	%r161, %r159;
+$Lt_0_60930:
+ //<loop> Loop body line 42, nesting depth: 1, estimated iterations: unknown
+	.loc	14	46	0
+	add.s32 	%r162, %r134, %r135;
+	cvt.s64.s32 	%rd151, %r162;
+	mul.wide.s32 	%rd152, %r162, 8;
+	.loc	14	42	0
+	ld.param.u64 	%rd122, [__cudaparm__Z8gpu_WDLAPdS_S_S_dS_S_S_S_S_S_S_S_S_S_S_iiii_omega];
+	.loc	14	46	0
+	add.u64 	%rd153, %rd122, %rd152;
+	ld.global.f64 	%fd57, [%rd153+-8];
+	neg.f64 	%fd58, %fd57;
+	add.s32 	%r163, %r32, %r135;
+	cvt.s64.s32 	%rd154, %r163;
+	mul.wide.s32 	%rd155, %r163, 8;
+	add.u64 	%rd156, %rd6, %rd155;
+	st.global.f64 	[%rd156+0], %fd58;
+	.loc	14	47	0
+	ld.global.f64 	%fd59, [%rd153+-8];
+	neg.f64 	%fd60, %fd59;
+	st.global.f64 	[%rd150+0], %fd60;
+	add.s32 	%r135, %r135, 1;
+	add.u64 	%rd150, %rd150, %rd147;
+	setp.ne.s32 	%p50, %r27, %r135;
+	@%p50 bra 	$Lt_0_60930;
+$Lt_0_60418:
+	.loc	14	50	0
+	add.u64 	%rd157, %rd2, %rd6;
+	st.global.f64 	[%rd157+0], %fd53;
+	.loc	14	149	0
+	cvt.rn.f64.s32 	%fd61, %r6;
+	add.u64 	%rd158, %rd23, %rd5;
+	st.global.f64 	[%rd158+0], %fd61;
+	@!%p5 bra 	$Lt_0_61442;
+	mov.s32 	%r164, %r10;
+	mul.lo.s32 	%r61, %r11, %r6;
+	add.s32 	%r97, %r61, 1;
+	add.s32 	%r165, %r61, %r11;
+	ld.param.u64 	%rd159, [__cudaparm__Z8gpu_WDLAPdS_S_S_dS_S_S_S_S_S_S_S_S_S_S_iiii_sameid];
+	cvt.s64.s32 	%rd160, %r97;
+	mul.wide.s32 	%rd161, %r97, 8;
+	add.u64 	%rd80, %rd159, %rd161;
+	add.s32 	%r166, %r32, 1;
+	cvt.s64.s32 	%rd162, %r166;
+	mul.wide.s32 	%rd163, %r166, 8;
+	add.u64 	%rd164, %rd5, %rd163;
+	mov.s32 	%r167, %r164;
+$Lt_0_61954:
+ //<loop> Loop body line 149, nesting depth: 1, estimated iterations: unknown
+	.loc	14	150	0
+	ld.global.f64 	%fd62, [%rd80+-8];
+	st.global.f64 	[%rd164+0], %fd62;
+	add.u64 	%rd164, %rd164, 8;
+	add.s32 	%r97, %r97, 1;
+	add.u64 	%rd80, %rd80, 8;
+	setp.ne.s32 	%p51, %r97, %r165;
+	@%p51 bra 	$Lt_0_61954;
+$Lt_0_61442:
+	@!%p11 bra 	$Lt_0_62466;
+	mov.s32 	%r168, %r12;
+	mul.lo.s32 	%r62, %r13, %r6;
+	add.s32 	%r169, %r27, %r62;
+	add.s32 	%r170, %r62, %r11;
+	sub.s32 	%r171, %r170, %r10;
+	sub.s32 	%r172, %r169, %r10;
+	ld.param.u64 	%rd165, [__cudaparm__Z8gpu_WDLAPdS_S_S_dS_S_S_S_S_S_S_S_S_S_S_iiii_diffid];
+	cvt.s64.s32 	%rd166, %r171;
+	mul.wide.s32 	%rd167, %r171, 8;
+	add.u64 	%rd168, %rd165, %rd167;
+	add.s32 	%r173, %r32, %r11;
+	cvt.s64.s32 	%rd169, %r173;
+	mul.wide.s32 	%rd170, %r173, 8;
+	add.u64 	%rd164, %rd5, %rd170;
+	mov.s32 	%r174, %r168;
+$Lt_0_62978:
+ //<loop> Loop body line 150, nesting depth: 1, estimated iterations: unknown
+	.loc	14	151	0
+	ld.global.f64 	%fd63, [%rd168+-8];
+	st.global.f64 	[%rd164+0], %fd63;
+	add.u64 	%rd164, %rd164, 8;
+	add.s32 	%r171, %r171, 1;
+	add.u64 	%rd168, %rd168, 8;
+	setp.ne.s32 	%p52, %r171, %r172;
+	@%p52 bra 	$Lt_0_62978;
+$Lt_0_62466:
+	.loc	14	153	0
+	bar.sync 	0;
+	@!%p12 bra 	$Lt_0_63490;
+	mov.s32 	%r175, %r27;
+	mov.s64 	%rd171, %rd5;
+	mov.s32 	%r176, %r34;
+	cvt.s64.s32 	%rd172, %r27;
+	mov.s64 	%rd173, %rd2;
+	mul.wide.s32 	%rd147, %r27, 8;
+	ld.param.u64 	%rd174, [__cudaparm__Z8gpu_WDLAPdS_S_S_dS_S_S_S_S_S_S_S_S_S_S_iiii_out];
+	mov.s32 	%r63, 0;
+	mov.s32 	%r177, %r175;
+$Lt_0_64002:
+ //<loop> Loop body line 153, nesting depth: 1, estimated iterations: unknown
+	mov.s32 	%r178, %r27;
+	mov.s64 	%rd175, %rd5;
+	mov.s32 	%r179, %r176;
+	add.s32 	%r180, %r27, %r176;
+	add.u64 	%rd176, %rd173, %rd6;
+	mov.s32 	%r181, %r178;
+$Lt_0_64770:
+ //<loop> Loop body line 153, nesting depth: 2, estimated iterations: unknown
+	.loc	14	157	0
+	ld.global.f64 	%fd64, [%rd175+0];
+	ld.global.f64 	%fd65, [%rd171+0];
+	cvt.rzi.s32.f64 	%r182, %fd64;
+	cvt.rzi.s32.f64 	%r183, %fd65;
+	mul.lo.s32 	%r184, %r183, %r8;
+	add.s32 	%r185, %r182, %r184;
+	cvt.s64.s32 	%rd177, %r185;
+	mul.wide.s32 	%rd178, %r185, 8;
+	add.u64 	%rd179, %rd174, %rd178;
+	ld.global.f64 	%fd66, [%rd176+0];
+	ld.global.f64 	%fd67, [%rd179+0];
+	add.f64 	%fd68, %fd66, %fd67;
+	st.global.f64 	[%rd179+0], %fd68;
+	.loc	14	158	0
+	bar.sync 	0;
+	add.s32 	%r179, %r179, 1;
+	add.u64 	%rd176, %rd176, 8;
+	add.u64 	%rd175, %rd175, 8;
+	setp.ne.s32 	%p53, %r179, %r180;
+	@%p53 bra 	$Lt_0_64770;
+	.loc	14	160	0
+	bar.sync 	0;
+	add.s32 	%r63, %r63, 1;
+	mov.s32 	%r176, %r180;
+	add.u64 	%rd173, %rd173, %rd147;
+	add.u64 	%rd171, %rd171, 8;
+	setp.ne.s32 	%p54, %r27, %r63;
+	@%p54 bra 	$Lt_0_64002;
+$Lt_0_63490:
+	.loc	14	164	0
+	bar.sync 	0;
+	.loc	14	99	0
+	add.s32 	%r6, %r6, 1;
+	add.s32 	%r32, %r27, %r32;
+	add.s32 	%r34, %r34, %r35;
+	add.u64 	%rd2, %rd2, %rd4;
+	setp.le.s32 	%p55, %r7, %r6;
+	@%p55 bra 	$Lt_0_65538;
+	setp.lt.s32 	%p56, %r6, %r8;
+	@%p56 bra 	$L_0_34306;
+$Lt_0_65538:
+$L_0_34562:
+	.loc	14	167	0
+	exit;
+$LDWend__Z8gpu_WDLAPdS_S_S_dS_S_S_S_S_S_S_S_S_S_S_iiii:
+	} // _Z8gpu_WDLAPdS_S_S_dS_S_S_S_S_S_S_S_S_S_S_iiii
+
