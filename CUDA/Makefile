@@ -12,9 +12,5 @@ CCFLAGS   := -m 64
 NVCCFLAGS := -m 64
 INCLUDES  := -I$(CUDA_INC_PATH) -I. -I$(CUDA_PATH)/samples/common/inc
 
-gpuSelectionSort.ptx: gpuSelectionSort.cu  
-	$(NVCC) -ptx $(NVCCFLAGS) $(GENCODE_FLAGS) $(INCLUDES) $<
 gpuWDLA.ptx: gpuWDLA.cu
-	$(NVCC) -ptx $(NVCCFLAGS) $(INCLUDES) $<
-gpuMinReduction.ptx: gpuMinReduction.cu
 	$(NVCC) -ptx $(NVCCFLAGS) $(INCLUDES) $<
