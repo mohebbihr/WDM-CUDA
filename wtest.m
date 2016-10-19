@@ -1,3 +1,7 @@
+% The test script for WDM metric.
+% author: Hamidreza Mohebbi
+% Email: mohebbi.h@gmail.com
+% May, 2016
 clear all;
 
 disp('Madelon dataset');
