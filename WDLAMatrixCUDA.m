@@ -1,12 +1,16 @@
-function [ Udla eign L] = WDLAMatrix( fea,gnd,options )
-% Weighted Bipart
+% The CUDA implementation of WDLAMatrix. This script calls CUDA functions to perfom the calculations.
+% author: Hamidreza Mohebbi
+% Email: mohebbi.h@gmail.com
+% May, 2016
+
+function [ Udla eign L] = WDLAMatrixCUDA( fea,gnd,options )
 
 % example
 % fea = rand(500,100);
 % gnd = [ones(250,1);-ones(250,1)];
 % options.k1 = 2;
 % options.k2 = 3;
-% [ Udla] = DLAMatrix( fea,gnd,options );
+% [ Udla] = WDLAMatrixCUDA( fea,gnd,options );
 % d = 50;
 % proj = fea*Udla(:,1:d);
 
@@ -40,9 +44,6 @@ NumThread = 512;
 
 NumElemPerThread = ceil(sampleNumber/(NumBlock * NumThread));
 
-%disp('gnd');
-%gnd
-
 % caculate L matrix
 L = zeros(sampleNumber, sampleNumber);
 idxsame = zeros(sampleNumber, sampleNumber);
@@ -57,10 +58,6 @@ sidx = zeros(sampleNumber, k1 + 1);
 didx = zeros(sampleNumber, k2 + 1);
 sameid = zeros(sampleNumber, k1 + 1);
 diffid = zeros(sampleNumber, k2 + 1);
-
-% init value samemat and diffmat
-%samemat(:) = intmin('int64');
-%diffmat(:) = intmin('int64');
 
 gpudev = gpuDevice(1);
 
