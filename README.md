@@ -1,7 +1,6 @@
 # WDM-CUDA
 
-This is the source codes for CUDA implementation of the new distance metric named WDM. This project is part of my research as a PhD student in
-UMass Boston. The aim of this project was to builds a weighted-distance metric from the labeled training set and combines it with group-level information from the
+This repository contains the source codes of the new distance metric named WDM and its parallel GPU (CUDA) implementation. The aim of this project is to builds a weighted-distance metric from the labeled training set and combines it with group-level information from the
 unlabeled test set.  This differs from the related approaches that use only labeled training data in order to build the model.  The WDM is a
 semi-supervised approach, similar to Semi-supervised Discriminant Analysis and Bipart that used labeled and unlabeled data.  The difference between WDM and methods
 like SDA is that it learns group-level information from both training and test sets.  The proposed method combines the information from these
